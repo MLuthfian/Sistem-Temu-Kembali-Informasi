@@ -1,0 +1,157 @@
+/* ==============================================================================
+   MedikaRAG - Professional Clinical Design System & Healthcare Theme
+   Clean, Authoritative GovTech Health Standard (No AI Slop)
+   ============================================================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Custom Ergonomic Scrollbars */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Subtle Medical Grid Background Pattern */
+.bg-medical-grid {
+  background-image: radial-gradient(rgba(15, 118, 110, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Clean Triage Alert Styling (Static, High Contrast, No Jittery Pulse) */
+.triage-alert-card {
+  border-left: 4px solid #dc2626 !important;
+  background-color: #fef2f2 !important;
+  color: #7f1d1d !important;
+}
+
+/* Active Filter Chip States */
+.filter-chip.active-chip {
+  background-color: #0f766e !important;
+  color: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(15, 118, 110, 0.3) !important;
+}
+
+.journal-index-chip.active-journal-chip {
+  background-color: #0369a1 !important;
+  color: #ffffff !important;
+  box-shadow: 0 1px 3px rgba(3, 105, 161, 0.3) !important;
+}
+
+.curator-tab-btn.active-tab {
+  border-bottom: 2px solid #0f766e !important;
+  color: #0f766e !important;
+  font-weight: 700 !important;
+}
+
+/* Markdown Formatting Inside Clinical AI Chatbot */
+.chat-markdown {
+  font-size: 0.9375rem;
+  line-height: 1.625;
+  color: #1e293b;
+}
+
+.chat-markdown h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.35rem;
+  color: #0f766e;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 0.25rem;
+}
+
+.chat-markdown h3:first-child {
+  margin-top: 0;
+}
+
+.chat-markdown p {
+  margin-bottom: 0.65rem;
+  line-height: 1.65;
+  color: #334155;
+}
+
+.chat-markdown ul, 
+.chat-markdown ol {
+  padding-left: 1.25rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  space-y: 0.25rem;
+}
+
+.chat-markdown ul {
+  list-style-type: disc;
+}
+
+.chat-markdown ol {
+  list-style-type: decimal;
+}
+
+.chat-markdown li {
+  margin-bottom: 0.35rem;
+  line-height: 1.55;
+  color: #334155;
+}
+
+.chat-markdown strong {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.chat-markdown hr {
+  border: 0;
+  border-top: 1px solid #e2e8f0;
+  margin: 0.85rem 0;
+}
+
+.chat-markdown blockquote {
+  border-left: 3px solid #dc2626;
+  padding: 0.5rem 0.85rem;
+  margin: 0.65rem 0;
+  font-size: 0.875rem;
+  background: #fef2f2;
+  border-radius: 0 0.5rem 0.5rem 0;
+  color: #991b1b;
+}
+
+/* Citations Badges */
+.citation-pill {
+  transition: all 0.15s ease-in-out;
+}
+.citation-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Card Hover Elevation */
+.direktori-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.direktori-card:hover {
+  border-color: #99f6e4;
+  box-shadow: 0 4px 14px rgba(15, 118, 110, 0.08);
+}

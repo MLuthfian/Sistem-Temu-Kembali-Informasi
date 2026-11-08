@@ -1,5 +1,9 @@
 <?php
 
+// Fix Symfony Base URL on Vercel so /api routes and root routes match cleanly
+$_SERVER['SCRIPT_NAME'] = '/index.php';
+$_SERVER['PHP_SELF'] = '/index.php';
+
 // Entry point Laravel untuk Vercel (runtime vercel-php).
 // Filesystem Vercel bersifat read-only kecuali direktori /tmp.
 $storage = '/tmp/storage';
@@ -29,6 +33,10 @@ putenv("DB_DATABASE=$dbTarget");
 $_ENV['DB_DATABASE'] = $dbTarget;
 putenv("VIEW_COMPILED_PATH=/tmp/storage/framework/views");
 $_ENV['VIEW_COMPILED_PATH'] = '/tmp/storage/framework/views';
+putenv("SESSION_DRIVER=cookie");
+$_ENV['SESSION_DRIVER'] = 'cookie';
+putenv("CACHE_STORE=array");
+$_ENV['CACHE_STORE'] = 'array';
 
 // Teruskan request ke public/index.php
 require __DIR__ . '/../public/index.php';

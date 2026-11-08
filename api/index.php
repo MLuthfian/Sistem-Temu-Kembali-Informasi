@@ -1,7 +1,7 @@
-﻿<?php
+<?php
 
 // Entry point Laravel untuk Vercel (runtime vercel-php).
-// Filesystem Vercel read-only kecuali /tmp, jadi siapkan folder storage di sana.
+// Filesystem Vercel bersifat read-only kecuali direktori /tmp.
 $storage = '/tmp/storage';
 foreach ([
     'app/public',
@@ -15,4 +15,18 @@ foreach ([
     }
 }
 
+// Salin database SQLite ke /tmp agar memiliki hak akses baca & tulis di Vercel
+$dbSource = __DIR__ . '/../database/database.sqlite';
+$dbTarget = '/tmp/database.sqlite';
+if (file_exists($dbSource) && (!file_exists($dbTarget) || filesize($dbTarget) === 0)) {
+    copy($dbSource, $dbTarget);
+}
+
+// Set environment variables dinamis untuk SQLite dan Views
+putenv("DB_DATABASE=$dbTarget");
+$_ENV['DB_DATABASE'] = $dbTarget;
+putenv("VIEW_COMPILED_PATH=/tmp/storage/framework/views");
+$_ENV['VIEW_COMPILED_PATH'] = '/tmp/storage/framework/views';
+
+// Teruskan request ke public/index.php
 require __DIR__ . '/../public/index.php';

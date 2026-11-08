@@ -22,7 +22,9 @@ if (file_exists($dbSource) && (!file_exists($dbTarget) || filesize($dbTarget) ==
     copy($dbSource, $dbTarget);
 }
 
-// Set environment variables dinamis untuk SQLite dan Views
+// Set environment variables dinamis untuk SQLite dan Vercel
+putenv("VERCEL=1");
+$_ENV['VERCEL'] = '1';
 putenv("DB_DATABASE=$dbTarget");
 $_ENV['DB_DATABASE'] = $dbTarget;
 putenv("VIEW_COMPILED_PATH=/tmp/storage/framework/views");

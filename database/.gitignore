@@ -1,1 +1,4 @@
-*.sqlite*
+# database/.gitignore
+# Allow database.sqlite so it is bundled with the repository for Vercel
+!.gitignore
+!database.sqlite

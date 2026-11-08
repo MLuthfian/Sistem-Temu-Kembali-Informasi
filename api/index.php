@@ -20,10 +20,18 @@ foreach ([
 }
 
 // Salin database SQLite ke /tmp agar memiliki hak akses baca & tulis di Vercel
-$dbSource = __DIR__ . '/../database/database.sqlite';
+$dbSource = null;
+if (file_exists(__DIR__ . '/../database/database.sqlite')) {
+    $dbSource = __DIR__ . '/../database/database.sqlite';
+} elseif (file_exists(__DIR__ . '/../data/medikarag.db')) {
+    $dbSource = __DIR__ . '/../data/medikarag.db';
+}
+
 $dbTarget = '/tmp/database.sqlite';
-if (file_exists($dbSource) && (!file_exists($dbTarget) || filesize($dbTarget) === 0)) {
+if ($dbSource && (!file_exists($dbTarget) || filesize($dbTarget) === 0)) {
     copy($dbSource, $dbTarget);
+} elseif (!file_exists($dbTarget)) {
+    touch($dbTarget);
 }
 
 // Set environment variables dinamis untuk SQLite dan Vercel

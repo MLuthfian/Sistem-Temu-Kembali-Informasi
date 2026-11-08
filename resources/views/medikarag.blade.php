@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
   
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="{{ asset('static/css/style.css') }}"/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
 
   <!-- Tailwind CSS CDN & Clean Clinical Design System Config -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -1131,6 +1131,6 @@
   </footer>
 
   <!-- Application Logic -->
-  <script src="{{ asset('static/js/app.js') }}"></script>
+  <script src="/static/js/app.js"></script>
 </body>
 </html>
